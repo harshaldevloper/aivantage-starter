@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIVANTAGE - AI Automation Starter Kit</title>
+    <meta name="description" content="Free AI tools, templates & automation guides. No paywalls. No signup.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #667eea; --secondary: #764ba2; --accent: #f093fb;
+            --glass: rgba(255, 255, 255, 0.1); --glass-border: rgba(255, 255, 255, 0.2);
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh; color: #fff; overflow-x: hidden;
+        }
+        .bg-animation {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; overflow: hidden;
+        }
+        .bg-animation::before {
+            content: ''; position: absolute; width: 200%; height: 200%; top: -50%; left: -50%;
+            background: radial-gradient(circle, var(--glass) 0%, transparent 70%);
+            animation: rotate 30s linear infinite;
+        }
+        @keyframes rotate { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+        
+        /* Header with Logo */
+        header {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 2rem 0; animation: fadeInDown 0.8s ease;
+        }
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .logo-section { display: flex; align-items: center; gap: 1rem; }
+        .logo {
+            width: 60px; height: 60px;
+            background: linear-gradient(135deg, #fff 0%, #f0f0f0 100%);
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2.5rem; font-weight: bold;
+            color: var(--primary);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        .site-name { font-size: 1.8rem; font-weight: bold; }
+        
+        .founder-badge {
+            background: var(--glass); backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            padding: 1rem 1.5rem; border-radius: 50px;
+            display: flex; align-items: center; gap: 1rem;
+        }
+        .founder-avatar {
+            width: 50px; height: 50px; border-radius: 50%;
+            background: linear-gradient(135deg, #fff 0%, #f0f0f0 100%);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem; font-weight: bold; color: var(--primary);
+        }
+        .founder-info { text-align: left; }
+        .founder-name { font-weight: bold; font-size: 1rem; }
+        .founder-role { font-size: 0.85rem; opacity: 0.8; }
+        
+        /* Hero */
+        .hero { text-align: center; padding: 4rem 0; animation: fadeInUp 0.8s ease; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        .hero h1 {
+            font-size: 3.5rem; margin-bottom: 1rem;
+            background: linear-gradient(135deg, #fff 0%, #f0f0f0 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+        .hero p { font-size: 1.3rem; opacity: 0.9; max-width: 600px; margin: 0 auto 2rem; }
+        .hero-cta { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .btn {
+            padding: 1rem 2rem; border-radius: 50px; text-decoration: none;
+            font-weight: 600; transition: all 0.3s ease; display: inline-block;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #fff 0%, #f0f0f0 100%); color: var(--primary);
+        }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(255,255,255,0.3); }
+        .btn-secondary {
+            background: rgba(255,255,255,0.1); border: 2px solid rgba(255,255,255,0.3); color: #fff;
+        }
+        .btn-secondary:hover { background: rgba(255,255,255,0.2); border-color: #fff; }
+        
+        /* Features */
+        .features {
+            background: var(--glass); backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border); border-radius: 20px;
+            padding: 3rem; margin: 3rem 0; animation: fadeInUp 0.8s ease 0.2s backwards;
+        }
+        .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 2rem; }
+        .feature-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;
+        }
+        .feature-card {
+            background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-10px); background: rgba(255,255,255,0.15);
+        }
+        .feature-icon { font-size: 3rem; margin-bottom: 1rem; }
+        .feature-card h3 { margin-bottom: 0.5rem; font-size: 1.3rem; }
+        .feature-card p { opacity: 0.9; line-height: 1.6; }
+        
+        /* Footer */
+        footer { text-align: center; padding: 3rem 0; opacity: 0.9; margin-top: 3rem; }
+        footer a { color: #fff; text-decoration: none; margin: 0 0.5rem; opacity: 0.8; }
+        footer a:hover { opacity: 1; }
+        
+        @media (max-width: 768px) {
+            header { flex-direction: column; gap: 1.5rem; text-align: center; }
+            .founder-badge { width: 100%; justify-content: center; }
+            .hero h1 { font-size: 2.5rem; }
+            .logo-section { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+    <div class="container">
+        <header>
+            <div class="logo-section">
+                <div class="logo">A</div>
+                <div class="site-name">AIVANTAGE</div>
+            </div>
+            <div class="founder-badge">
+                <div class="founder-avatar">H</div>
+                <div class="founder-info">
+                    <div class="founder-name">Harshal Lahare</div>
+                    <div class="founder-role">AI Automation Specialist</div>
+                </div>
+            </div>
+        </header>
+        
+        <div class="hero">
+            <h1>🤖 AI Automation Starter Kit</h1>
+            <p>Free tools, templates & automation guides. No paywalls. No paid subscriptions. Just practical, battle-tested resources.</p>
+            <div class="hero-cta">
+                <a href="https://github.com/harshaldevloper/starter-kit" class="btn btn-primary" target="_blank">📥 Get Started on GitHub</a>
+                <a href="shop.html" class="btn btn-secondary">🛒 Shop</a>
+            </div>
+        </div>
+        
+        <section class="features">
+            <h2 class="section-title">📚 What's Inside</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <h3>AI Mindset</h3>
+                    <p>How to leverage AI for maximum productivity. Rules, principles, and mental models.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛠️</div>
+                    <h3>Free Tools Stack</h3>
+                    <p>Every free AI tool you need. No paid alternatives. Complete toolkit.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>AI Agent Setup</h3>
+                    <p>Step-by-step guides to automate your workflows with AI agents.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📝</div>
+                    <h3>Content Strategy</h3>
+                    <p>30-day content calendar + viral templates that actually work.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Product Launch</h3>
+                    <p>How to launch your first digital product. Step-by-step guide.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3>Monetization</h3>
+                    <p>Turn your AI skills into income streams. Ethical, sustainable methods.</p>
+                </div>
+            </div>
+        </section>
+        
+        <footer>
+            <p>Built with ❤️ by Harshal Lahare | AIVANTAGE</p>
+            <p>India 🇮🇳</p>
+            <div style="margin-top: 1rem;">
+                <a href="https://x.com/aivantage_ai" target="_blank">Twitter</a> •
+                <a href="https://github.com/harshaldevloper" target="_blank">GitHub</a> •
+                <a href="https://dev.to/aiavantage" target="_blank">Dev.to</a>
+            </div>
+            <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.7;">© 2026 AIVANTAGE. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
