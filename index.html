@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AIVANTAGE - AI Automation Starter Kit</title>
     <meta name="description" content="Free AI tools, templates & automation guides. No paywalls. No signup.">
-    <!-- Monetag Ad Code -->
-    <script src="https://quge5.com/88/tag.min.js" data-zone="223756" async data-cfasync="false"></script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
@@ -187,11 +185,49 @@
             </div>
         </section>
         
+        <!-- Premium Section -->
+        <section id="premium" style="text-align: center; padding: 4rem 2rem; margin-top: 3rem; background: rgba(0,0,0,0.2); border-radius: 20px;">
+            <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">🚀 Get Premium Access</h2>
+            <p style="font-size: 1.2rem; opacity: 0.9; margin-bottom: 2rem;">Complete AI automation starter kit with templates, prompts & guides</p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="https://buy.paddle.com/checkout/pro_01kmz9378zhnaw3jck4enjkzv8/pri_01kmz9p3kjsmg9d90v3ccxp59r" 
+                   style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+                          color: white; 
+                          padding: 1rem 2.5rem; 
+                          border-radius: 50px; 
+                          text-decoration: none; 
+                          font-weight: bold;
+                          font-size: 1.1rem;
+                          display: inline-block;
+                          box-shadow: 0 10px 30px rgba(102,126,234,0.4);
+                          transition: transform 0.3s;">
+                   Starter Kit Premium - $7/mo (14 days free)
+                </a>
+                <a href="https://buy.paddle.com/checkout/pro_01kmz9b8vajbpqk8vqc9mhh01m/pri_01kmz9vs3m9q8njvg0pstdzzzc" 
+                   style="background: linear-gradient(135deg, #f97316 0%, #fb923c 100%); 
+                          color: white; 
+                          padding: 1rem 2.5rem; 
+                          border-radius: 50px; 
+                          text-decoration: none; 
+                          font-weight: bold;
+                          font-size: 1.1rem;
+                          display: inline-block;
+                          box-shadow: 0 10px 30px rgba(249,115,22,0.4);
+                          transition: transform 0.3s;">
+                   Complete Bundle - $15/mo (14 days free)
+                </a>
+            </div>
+            <p style="margin-top: 1.5rem; opacity: 0.7; font-size: 0.9rem;">
+                🔒 Secure checkout by Paddle • 30-day money-back guarantee
+            </p>
+        </section>
+
         <footer>
             <p>Built with ❤️ by Harshal Lahare | AIVANTAGE</p>
             <p>India 🇮🇳</p>
             <div style="margin-top: 1rem;">
                 <a href="recommended-tools.html" style="color: var(--accent); font-weight: 700;">🛒 Recommended Tools</a> •
+                <a href="refund.html" style="color: #fff; text-decoration: underline;">💰 Refund Policy</a> •
                 <a href="https://x.com/aivantage_ai" target="_blank">Twitter</a> •
                 <a href="https://github.com/harshaldevloper" target="_blank">GitHub</a> •
                 <a href="https://dev.to/aiavantage" target="_blank">Dev.to</a>
@@ -199,10 +235,268 @@
             <p style="margin-top: 1rem; font-size: 0.8rem; opacity: 0.7;">
                 <a href="amazon-disclosure.html" style="color: inherit; text-decoration: underline;">Amazon Affiliate Disclosure</a> •
                 <a href="privacy.html" style="color: inherit; text-decoration: underline;">Privacy Policy</a> •
-                <a href="terms.html" style="color: inherit; text-decoration: underline;">Terms of Service</a>
+                <a href="terms.html" style="color: inherit; text-decoration: underline;">Terms of Service</a> •
+                <a href="refund.html" style="color: inherit; text-decoration: underline;">Refund Policy</a>
             </p>
             <p style="margin-top: 0.5rem; font-size: 0.75rem; opacity: 0.6;">© 2026 AIVANTAGE. All rights reserved.</p>
         </footer>
     </div>
+
+    <!-- 🚀 AI WORKFLOW AUTOMATOR POPUP -->
+    <div id="workflowPopup" class="workflow-popup" onclick="goToWaitlist()">
+        <div class="popup-content">
+            <div class="popup-glow"></div>
+            <div class="popup-orb orb-1"></div>
+            <div class="popup-orb orb-2"></div>
+            <div class="popup-orb orb-3"></div>
+            
+            <div class="popup-badge">🎯 COMING SOON</div>
+            
+            <h2 class="popup-title">
+                <span class="gradient-text">AI WORKFLOW AUTOMATOR</span>
+            </h2>
+            
+            <p class="popup-subtitle">"Zapier for AI Tools"</p>
+            
+            <div class="popup-features">
+                <div class="popup-feature">
+                    <span class="feature-icon">⚡</span>
+                    <span>No Code Required</span>
+                </div>
+                <div class="popup-feature">
+                    <span class="feature-icon">🔗</span>
+                    <span>50+ AI Integrations</span>
+                </div>
+                <div class="popup-feature">
+                    <span class="feature-icon">💰</span>
+                    <span>Free Tier Available</span>
+                </div>
+            </div>
+            
+            <div class="popup-cta">
+                <span class="cta-pulse">🚀</span>
+                <span>Join Waitlist - 50% OFF Lifetime</span>
+            </div>
+            
+            <p class="popup-note">Click anywhere to join →</p>
+        </div>
+    </div>
+
+    <style>
+        /* Popup Styles */
+        .workflow-popup {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 9999;
+            cursor: pointer;
+            animation: popupSlideIn 0.6s ease-out;
+        }
+        
+        @keyframes popupSlideIn {
+            from {
+                opacity: 0;
+                transform: translateX(100px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0) scale(1);
+            }
+        }
+        
+        .popup-content {
+            position: relative;
+            background: linear-gradient(135deg, rgba(15,15,35,0.95) 0%, rgba(26,26,62,0.95) 100%);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(102,126,234,0.3);
+            border-radius: 24px;
+            padding: 1.5rem;
+            max-width: 380px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(102,126,234,0.4);
+            transition: all 0.3s ease;
+        }
+        
+        .popup-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 80px rgba(102,126,234,0.5);
+            border-color: rgba(102,126,234,0.5);
+        }
+        
+        /* Animated Background Orbs */
+        .popup-glow {
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(102,126,234,0.15) 0%, transparent 70%);
+            animation: popupRotate 20s linear infinite;
+        }
+        
+        @keyframes popupRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .popup-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(40px);
+            opacity: 0.4;
+            animation: popupFloat 15s infinite ease-in-out;
+        }
+        
+        .orb-1 {
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            top: -30px;
+            left: -30px;
+            animation-delay: 0s;
+        }
+        
+        .orb-2 {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            bottom: -20px;
+            right: -20px;
+            animation-delay: -5s;
+        }
+        
+        .orb-3 {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            top: 50%;
+            left: 50%;
+            animation-delay: -10s;
+        }
+        
+        @keyframes popupFloat {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(20px, -30px) scale(1.1); }
+            66% { transform: translate(-15px, 20px) scale(0.9); }
+        }
+        
+        .popup-badge {
+            position: relative;
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            z-index: 10;
+        }
+        
+        .popup-title {
+            position: relative;
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin: 0 0 0.5rem 0;
+            z-index: 10;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%, #f093fb 50%, #f5576c 100%);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 5s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .popup-subtitle {
+            position: relative;
+            color: rgba(255,255,255,0.7);
+            font-size: 1rem;
+            margin: 0 0 1rem 0;
+            z-index: 10;
+        }
+        
+        .popup-features {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin: 1rem 0;
+            z-index: 10;
+        }
+        
+        .popup-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.9);
+        }
+        
+        .feature-icon {
+            font-size: 1.1rem;
+        }
+        
+        .popup-cta {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, rgba(102,126,234,0.2) 0%, rgba(118,75,162,0.2) 100%);
+            padding: 0.75rem 1rem;
+            border-radius: 12px;
+            margin: 1rem 0;
+            z-index: 10;
+        }
+        
+        .cta-pulse {
+            animation: ctaPulse 2s infinite;
+        }
+        
+        @keyframes ctaPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        
+        .popup-note {
+            position: relative;
+            color: rgba(255,255,255,0.5);
+            font-size: 0.8rem;
+            text-align: right;
+            margin: 0;
+            z-index: 10;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .workflow-popup {
+                bottom: 20px;
+                right: 20px;
+                left: 20px;
+            }
+            .popup-content {
+                max-width: 100%;
+            }
+        }
+    </style>
+
+    <script>
+        function goToWaitlist() {
+            window.location.href = 'waitlist.html';
+        }
+        
+        // Show popup after 3 seconds
+        setTimeout(function() {
+            document.getElementById('workflowPopup').style.display = 'block';
+        }, 3000);
+    </script>
 </body>
 </html>
