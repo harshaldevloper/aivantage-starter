@@ -392,9 +392,9 @@
             <div id="waitlistForm">
                 <h3>🎯 Join the Waitlist</h3>
                 <p>Be first to get early access + <strong>50% off lifetime</strong></p>
-                <form onsubmit="handleSubmit(event)">
+                <form action="https://formspree.io/f/xbjwzqrl" method="POST" onsubmit="handleSubmit(event)">
                     <div class="form-group">
-                        <input type="email" id="email" placeholder="Enter your email" required>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
                         <button type="submit">Join Waitlist →</button>
                     </div>
                 </form>
@@ -443,32 +443,44 @@
             }
         }, 50);
 
-        // Form submission
+        // Form submission with Formspree
         function handleSubmit(e) {
-            e.preventDefault();
-            const email = document.getElementById('email').value;
+            const form = e.target;
+            const formData = new FormData(form);
             
-            // Store locally (replace with actual backend)
-            const waitlist = JSON.parse(localStorage.getItem('aivantage_waitlist') || '[]');
-            waitlist.push({ 
-                email, 
-                date: new Date().toISOString(),
-                source: 'waitlist-page'
+            // Show loading state
+            const button = form.querySelector('button');
+            const originalText = button.textContent;
+            button.textContent = 'Joining...';
+            button.disabled = true;
+            
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Show success
+                    document.getElementById('waitlistForm').style.display = 'none';
+                    document.getElementById('successMessage').style.display = 'block';
+                    console.log('🎯 New waitlist signup submitted!');
+                } else {
+                    // Show error
+                    button.textContent = 'Try Again';
+                    button.disabled = false;
+                    alert('Oops! There was a problem submitting your email. Please try again.');
+                }
+            })
+            .catch(error => {
+                button.textContent = 'Try Again';
+                button.disabled = false;
+                alert('Oops! There was a problem submitting your email. Please try again.');
             });
-            localStorage.setItem('aivantage_waitlist', JSON.stringify(waitlist));
             
-            // Show success
-            document.getElementById('waitlistForm').style.display = 'none';
-            document.getElementById('successMessage').style.display = 'block';
-            
-            // Track in console (replace with analytics)
-            console.log('🎯 New waitlist signup:', email);
-            
-            // Optional: Send to Google Sheets, Airtable, or email service
-            // fetch('YOUR_WEBHOOK_URL', {
-            //     method: 'POST',
-            //     body: JSON.stringify({ email })
-            // });
+            e.preventDefault();
         }
 
         // Add hover effects to use cases
